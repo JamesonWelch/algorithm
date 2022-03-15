@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class DynamicQueueBatching:
     """
-    Takes a dataset of sequences meant to be placed in a queue
+    Takes a dataset sequence meant to be placed in a queue
     and dynamically builds each queue batch not to exceed a 
     specified size(bytes).
 
@@ -36,7 +36,7 @@ class DynamicQueueBatching:
         number of items in the Queue message, then populates Queue with 
         the rest of the dataset until empty.
         """
-        if not isinstance(self.dataset, list): raise TypeError('Dataset is not list')
+        if not isinstance(self.dataset, list): raise TypeError('Dataset is not a list')
 
         if not self.msg_size:
             while len(self.dataset) > 0:
